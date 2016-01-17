@@ -10,6 +10,7 @@ import java.net.Socket;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 
 /**
  * Created by ggalt on 12/18/15.
@@ -46,6 +47,7 @@ public class SlimProto {
         if (l == null)
             return;
         l.remove(listener);
+        // FIXME shouldn't this be "remove" not "add"??
         connectionListeners.add(listener);
     }
 
@@ -81,7 +83,21 @@ public class SlimProto {
 
     /**
      * Send a hello message to the slim server.
-     */
+     * From server/Slim/Networking/Slimproto.pm from 7.5r28596
+     ** squeezebox(2)
+     ** softsqueeze(3)
+     ** squeezebox2(4)
+     ** transporter(5)
+     ** softsqueeze3(6)
+     ** receiver(7)
+     ** squeezeslave(8)
+     ** controller(9)
+     ** boom(10)
+     ** softboom(11)
+     ** squeezeplay(12)
+     ** radio(13)
+     ** touch(14)
+    */
     public void sendHELO(int deviceID, int revision, byte[] macaddress,
                          boolean isGraphics, boolean isReconnect) {
         if (!isConnected())
@@ -245,10 +261,10 @@ public class SlimProto {
             return;
 
         Log.d(TAG, "command socket connected");
-//        for (Iterator i=connectionListeners.iterator(); i.hasNext(); ) {
-//            ProtocolListener p = (ProtocolListener) i.next();
-//            p.slimprotoConnected();
-//        }
+        for (Iterator i=connectionListeners.iterator(); i.hasNext(); ) {
+            ProtocolListener p = (ProtocolListener) i.next();
+            p.slimprotoConnected();
+        }
     }
 
     private void socketDisconnected(TcpSocket socket) {
@@ -256,10 +272,10 @@ public class SlimProto {
             return;
 
         Log.d(TAG, "command socket disconnected");
-//        for (Iterator i=connectionListeners.iterator(); i.hasNext(); ) {
-//            ProtocolListener p = (ProtocolListener) i.next();
-//            p.slimprotoDisconnected();
-//        }
+        for (Iterator i=connectionListeners.iterator(); i.hasNext(); ) {
+            ProtocolListener p = (ProtocolListener) i.next();
+            p.slimprotoDisconnected();
+        }
     }
 
     private void socketCommand(byte buf[], int offset, int len) {
@@ -286,6 +302,7 @@ public class SlimProto {
         private int port;
         private Socket socket;
         private boolean isConnected = false;
+        private boolean closeSocket = false;
 
         public boolean isConnected() {
             return isConnected;
@@ -294,8 +311,6 @@ public class SlimProto {
         public boolean isCloseSocket() {
             return closeSocket;
         }
-
-        private boolean closeSocket = false;
 
         TcpSocket(InetAddress addr, int port) {
             this.address = addr;
@@ -358,7 +373,7 @@ public class SlimProto {
                     }
                 }
 
-                 socketConnected(this);
+                socketConnected(this);
 
                 while (true) {
                     try {

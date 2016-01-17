@@ -27,9 +27,10 @@ public class ServerInfo {
     private static String PLAYER_NAME;
     private static String USERNAME;
     private static String PASSWORD;
+    private static boolean USER_REVIEW = false;
 
     /*
-     * These are volatile from one session to the next and son
+     * These are volatile from one session to the next and so
      * we don't store them in the preferences but gather them
      * through server calls.
      */
@@ -61,6 +62,7 @@ public class ServerInfo {
     public static String getPlayerName() { return PLAYER_NAME; }
     public static String getUSERNAME() { return USERNAME; }
     public static String getPASSWORD() { return PASSWORD; }
+    public static boolean getUserReview() { return USER_REVIEW; }
 
     public static List<String> getFavorites() {return favorites;}
     public static List<PlayerInfo> getPlayers() {return players;}
@@ -101,6 +103,7 @@ public class ServerInfo {
         PLAYER_NAME = DEFAULT_PLAYER_NAME;
         USERNAME = DEFAULT_USERNAME;
         PASSWORD = DEFAULT_PASSWORD;
+        USER_REVIEW = false;
     }
 
     public void readValues(){
@@ -112,6 +115,7 @@ public class ServerInfo {
             PLAYER_NAME = prefs.getString("PLAYER_NAME_ID", DEFAULT_PLAYER_NAME);
             USERNAME = prefs.getString("USERNAME_ID", DEFAULT_USERNAME);
             PASSWORD = prefs.getString("PASSWORD_ID", DEFAULT_PASSWORD);
+            USER_REVIEW = prefs.getBoolean("USER_REVIEW", false);
         }
     }
 
@@ -126,57 +130,59 @@ public class ServerInfo {
             editor.putString("PLAYER_NAME_ID", PLAYER_NAME);
             editor.putString("USERNAME_ID", USERNAME);
             editor.putString("PASSWORD_ID", PASSWORD);
+            editor.putBoolean("USER_REVIEW", true);
             editor.apply();
         }
     }
-}
 
-class PlayerInfo {
-    private String name;
-    private String id;
-    private String macAddress;
-    private String ipAddress;
+    private class PlayerInfo {
+        private String name;
+        private String id;
+        private String macAddress;
+        private String ipAddress;
 
-    PlayerInfo(){
+        PlayerInfo(){
 
+        }
+
+        PlayerInfo(String name, String id, String macAddress, String ipAddress) {
+            this.name = name;
+            this.id = id;
+            this.macAddress = macAddress;
+            this.ipAddress = ipAddress;
+        }
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
+
+        public String getId() {
+            return id;
+        }
+
+        public void setId(String id) {
+            this.id = id;
+        }
+
+        public String getMacAddress() {
+            return macAddress;
+        }
+
+        public void setMacAddress(String macAddress) {
+            this.macAddress = macAddress;
+        }
+
+        public String getIpAddress() {
+            return ipAddress;
+        }
+
+        public void setIpAddress(String ipAddress) {
+            this.ipAddress = ipAddress;
+        }
     }
 
-    PlayerInfo(String name, String id, String macAddress, String ipAddress) {
-        this.name = name;
-        this.id = id;
-        this.macAddress = macAddress;
-        this.ipAddress = ipAddress;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
-    }
-
-    public String getMacAddress() {
-        return macAddress;
-    }
-
-    public void setMacAddress(String macAddress) {
-        this.macAddress = macAddress;
-    }
-
-    public String getIpAddress() {
-        return ipAddress;
-    }
-
-    public void setIpAddress(String ipAddress) {
-        this.ipAddress = ipAddress;
-    }
 }

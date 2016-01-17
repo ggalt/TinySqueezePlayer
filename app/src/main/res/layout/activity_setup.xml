@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.georgegalt.squeezeme.SetupActivity"
+    android:background="@drawable/gradient_green">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Server IP Address:"
+        android:id="@+id/txtVwIPAddress"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:textSize="16sp" />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edtServerIP"
+        android:layout_toRightOf="@+id/txtVwIPAddress"
+        android:layout_alignBottom="@+id/txtVwIPAddress"
+        android:editable="true"
+        android:paddingLeft="10dp"
+        android:textSize="16sp"
+        android:background="#ffffff"
+        android:focusable="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Player Port:"
+        android:id="@+id/txtVwPort"
+        android:layout_below="@+id/txtVwIPAddress"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp"
+        android:textSize="16sp"
+        android:layout_alignEnd="@id/txtVwIPAddress" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CLI Port:"
+        android:id="@+id/txtVwCliPort"
+        android:layout_below="@+id/txtVwPort"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp"
+        android:textSize="16sp"
+        android:layout_alignEnd="@id/txtVwIPAddress" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Web Server Port:"
+        android:id="@+id/txtVwWebPort"
+        android:layout_below="@+id/txtVwCliPort"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp"
+        android:textSize="16sp"
+        android:layout_alignEnd="@id/txtVwIPAddress" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Player Name:"
+        android:id="@+id/txtVwPlayer"
+        android:layout_below="@+id/txtVwWebPort"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="20dp"
+        android:layout_alignEnd="@id/txtVwIPAddress"
+        android:textSize="16sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Username:"
+        android:id="@+id/txtVwUser"
+        android:layout_below="@+id/txtVwPlayer"
+        android:layout_alignEnd="@id/txtVwIPAddress"
+        android:layout_marginTop="20dp"
+        android:layout_alignParentStart="true"
+        android:textSize="16sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Password:"
+        android:id="@+id/txtVwPass"
+        android:layout_centerVertical="true"
+        android:layout_alignEnd="@id/txtVwIPAddress"
+        android:elegantTextHeight="false"
+        android:layout_alignParentStart="true"
+        android:textSize="16sp"
+        android:layout_below="@+id/txtVwUser"
+        android:layout_marginTop="20dp" />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edtPort"
+        android:layout_toRightOf="@+id/txtVwPort"
+        android:layout_alignBottom="@+id/txtVwPort"
+        android:editable="true"
+        android:paddingLeft="10dp"
+        android:textSize="16sp"
+        android:background="#ffffff"
+        android:focusable="true" />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edtCliPort"
+        android:layout_alignParentEnd="true"
+        android:background="#ffffff"
+        android:layout_toRightOf="@+id/txtVwCliPort"
+        android:layout_alignBottom="@+id/txtVwCliPort"
+        android:editable="true"
+        android:focusable="true" />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edtWebPort"
+        android:layout_alignBottom="@+id/txtVwWebPort"
+        android:layout_toRightOf="@+id/txtVwWebPort"
+        android:background="#ffffff"
+        android:editable="true"
+        android:focusable="true" />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edtPlayer"
+        android:layout_toEndOf="@+id/txtVwPlayer"
+        android:layout_toRightOf="@+id/txtVwPlayer"
+        android:layout_alignBottom="@+id/txtVwPlayer"
+        android:background="#ffffff"
+        android:editable="true"
+        android:focusable="true" />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edtUser"
+        android:layout_alignBottom="@+id/txtVwUser"
+        android:layout_toEndOf="@+id/txtVwUser"
+        android:layout_toRightOf="@+id/txtVwUser"
+        android:background="#ffffff"
+        android:editable="true"
+        android:focusable="true" />
+
+    <EditText
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/edtPass"
+        android:layout_alignBottom="@+id/txtVwPass"
+        android:layout_alignStart="@+id/edtUser"
+        android:layout_toRightOf="@+id/txtVwPass"
+        android:background="#ffffff"
+        android:editable="true"
+        android:focusable="true" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/txtVwPass"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="25dp">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save"
+            android:id="@+id/btnOK"
+            android:background="@android:drawable/btn_default"
+            android:layout_weight="1" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancel"
+            android:id="@+id/btnCancel"
+            android:background="@android:drawable/btn_default"
+            android:layout_weight="1" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Defaults"
+            android:id="@+id/btnReset"
+            android:background="@android:drawable/btn_default"
+            android:layout_weight="1" />
+    </LinearLayout>
+
+</RelativeLayout>

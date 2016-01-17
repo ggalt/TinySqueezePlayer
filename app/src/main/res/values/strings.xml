@@ -1,3 +1,36 @@
 <resources>
     <string name="app_name">TinySqueezePlayer</string>
+    <string name="action_settings">Settings</string>
+    <string name="settings_reset_msg">Server Values Won\'t Update Until Saved</string>
+    <string name="settings_updated_msg">Server Values Updated</string>
+    <string name="settings_cancel_msg">Server Values Not Updated</string>
+    <string name="My_Music">My Music</string>
+    <string name="My_Music_Artists">Artists</string>
+    <string name="My_Music_Composers">Composers</string>
+    <string name="My_Music_Albums">Albums</string>
+    <string name="My_Music_Compilations">Compilations</string>
+    <string name="My_Music_Genres">Genres</string>
+    <string name="My_Music_Years">Years</string>
+    <string name="My_Music_New_Music">New Music</string>
+    <string name="My_Music_Random_Mix">Random Mix</string>
+    <string name="My_Music_Folder">Music Folder</string>
+    <string name="My_Music_Playlists">Playlists</string>
+    <string name="Radio">Radio</string>
+    <string name="Radio_My_Presets">My Presets</string>
+    <string name="Radio_Staff_Picks">Staff Picks</string>
+    <string name="Radio_Local">Local</string>
+    <string name="Radio_Music">Music</string>
+    <string name="Radio_Talk">Talk</string>
+    <string name="Radio_News">News</string>
+    <string name="Radio_Sports">Sports</string>
+    <string name="Radio_Language">By Language</string>
+    <string name="Radio_World">World</string>
+    <string name="Radio_Podcasts">Podcasts</string>
+    <string name="My_Apps">My Apps</string>
+    <string name="Favorites">Favorites</string>
+    <string name="Extras">Extras</string>
+    <string name="Extras_Alarm">Alarm Clock</string>
+    <string name="Extras_Music_Source">Music Source</string>
+    <string name="Extras_Image_Browser">Image Browser</string>
+    <string name="Extras_Info_Browser">Info Browser</string>
 </resources>
